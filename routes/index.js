@@ -11,12 +11,13 @@ function asyncHandler(cb){
       next(error);
   }}
 }
+
 // Home redirects to Books
 router.get('/', asyncHandler(async (req, res) => {
     res.redirect("/books")
 }));
 
-// GET all books
+//GET all books
 router.get('/books', asyncHandler(async (req, res) => {
   const books = await Book.findAll();
   res.json(books);
@@ -40,7 +41,6 @@ router.post('/books/new', asyncHandler(async (req, res) => {
       throw error;
     } 
   }
- 
 }));
 
 //GET edit book detail form
@@ -72,7 +72,6 @@ router.post('/books/:id', asyncHandler(async( req, res) => {
       throw error;
     } 
   }
- 
 }));
 
 // POST delete book - 
@@ -94,7 +93,6 @@ router.post('/books/:id/delete', asyncHandler(async( req, res) => {
       throw error;
     } 
   }
- 
 }));
 
 

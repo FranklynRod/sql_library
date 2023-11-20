@@ -5,18 +5,17 @@ block content
   h1 Books
   p 
     a.button(href='/books/new') Create New Book
-  p
-    table
-      thead
+  table
+    thead
       tr
         th Title
         th Author
         th Genre
         th Year
-      tbody
-        each value in books 
-          tr 
-            td=value.Title
-            td=value.Author
-            td=value.Genre
-            td=value.Year
+    tbody
+      each value in books 
+        tr 
+          td=value.title
+          td=value.author
+          td=value.genre
+          td=value.year

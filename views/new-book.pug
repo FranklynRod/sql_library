@@ -9,8 +9,8 @@ block content
       h2.error Ooooops! 
       ul 
         each error in errors 
-          li Title is required
-          li Author is required
+          li #{error.msg}
+          li #{error.msg}
 
       p
         label(for='title') Title:

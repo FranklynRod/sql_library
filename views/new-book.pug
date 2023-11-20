@@ -1,24 +1,23 @@
-extends layout
+extends layout.pug 
 
 block content
   h1 New Book
 
-form(method='POST' action='/books/new')
-          p
-            label(for='title') Title:
-            input#titlel(type='text', placeholder='Title' name='title')
-          p
-            label(for='author') Author:
-            input#author(type='text', placeholder='Author' name='author')
-          p
-            label(for='genre') Genre:
-            input#genre(type='text', placeholder='Genre' name='genre')
-          p
-            label(for='year') Year:
-            input#year(type='text' placeholder='Year' name='year')
-          
-  p 
-    a.button(href='/books/new') Create New Book
-  p 
-    a.button(href='/books/new') Cancel
-  
+  form(method='POST' action='/books/new')
+            p
+              label(for='title') Title:
+              input#titlel(type='text', placeholder='Title' name='title')
+            p
+              label(for='author') Author:
+              input#author(type='text', placeholder='Author' name='author')
+            p
+              label(for='genre') Genre:
+              input#genre(type='text', placeholder='Genre' name='genre')
+            p
+              label(for='year') Year:
+              input#year(type='text' placeholder='Year' name='year')
+            
+            p 
+              a.button(href='/books/new') Create New Book
+            p 
+              a.button(href='/books/new') Cancel

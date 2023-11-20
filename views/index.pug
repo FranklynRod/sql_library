@@ -1,9 +1,10 @@
-extends layout
+extends layout.pug
 
 block content
+  link(href='../public/stylesheets/style.css' rel='stylesheet')
   h1 Books
   p 
-    a.button(href='/books/new')
+    a.button(href='/books/new') Create New Book
   p
     table
       thead
@@ -13,3 +14,9 @@ block content
         th Genre
         th Year
       tbody
+        each value in books 
+          tr 
+            td=value.Title
+            td=value.Author
+            td=value.Genre
+            td=value.Year

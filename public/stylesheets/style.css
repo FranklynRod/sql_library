@@ -4,8 +4,8 @@ body {
 }
 h1{
   text-align: center;
+  color: cadetblue;
 }
-
 
 a {
   color:black;
@@ -13,6 +13,14 @@ a {
   border-radius: 50px;
   text-decoration: none;
   padding: 6px;
+  margin-bottom: 39px;
 
 }
+label {
+  padding-right: 10px;
+
+}
+/* th {
+
+} */
 

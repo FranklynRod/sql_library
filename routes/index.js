@@ -43,13 +43,15 @@ router.post('/books/new', asyncHandler(async (req, res) => {
   }
 }));
 
-//GET edit book detail form
-router.get('/books/:id', asyncHandler(async( req, res) => {
+//GET edit specific book detail form
+router.get('/books/:id', asyncHandler(async(req, res, next) => {
   const book = await Book.findByPk(req.params.id);
   if (book){
     res.render("update-book",{book, title: book.title})
   } else{
-    res.sendStatus(404);
+    const error = new Error("The book you're trying to find doesn't exist");
+    error.status = 404;
+    next(error);
   }
 }));
 
@@ -61,7 +63,9 @@ router.post('/books/:id', asyncHandler(async( req, res) => {
     if (book){
       res.redirect("/")
     } else{
-      res.sendStatus(404);
+      const error = new Error("The page you're trying to find doesn't exist");
+      error.status = 404;
+      next(error);
     }
   } catch(error){
     if(error.name === "SequelizeValidationError") { 
@@ -83,7 +87,9 @@ router.post('/books/:id/delete', asyncHandler(async( req, res) => {
       await book.destroy();
       res.redirect("/books");
     } else{
-      res.sendStatus(404);
+      const error = new Error("The page you're trying to find doesn't exist");
+      error.status = 404;
+      next(error);
     }
   }catch(error){
     if(error.name === "SequelizeValidationError") { 

@@ -15,7 +15,8 @@ block content
     tbody
       each value in books 
         tr 
-          td=value.title
+          td
+            a(href='/books/'+ value.id)= value.title
           td=value.author
           td=value.genre
           td=value.year
